@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      :root {
+        --kitty-size: 300px;
+        --kitty-body: #CBB;
+        --kitty-blush: #F98;
+        --border: 2px;
+        background: lightblue;
+      }
+
+      @media (max-width: 500px) {:root {--kitty-size: 200px;--border: 1.5px;}}
+      @media (max-height: 500px) {:root {--kitty-size: 200px;--border: 1.5px;}}
+      @media (max-width: 350px) {:root {--kitty-size: 100px;--border: 1px;}}
+      @media (max-height: 350px) {:root {--kitty-size: 100px;--border: 1px;}}
+
+      .kitty {
+        position: relative;
+        margin: auto;
+        margin-top: 5%;
+        width: var(--kitty-size);
+        height: var(--kitty-size);
+      }
+
+      .kitty-back {
+        top: 10%;
+        left: 25%;
+        width: 50%;
+        height: 46%;
+      }
+
+      .left-ear {
+        top: 3%;
+        left: -15%;
+        background: var(--kitty-body, lightgray);
+        width: 50%;
+        height: 50%;
+        transform: rotate(-105deg);
+        border-radius: 150% 20% 150% 0%;
+        border: var(--border) black solid;
+        animation-duration: 0.75s;
+        animation-name: wiggle-left;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .inside-left-ear {
+        top: 9%;
+        left: -9%;
+        background: var(--kitty-blush, pink);
+        width: 40%;
+        height: 40%;
+        transform: rotate(-105deg);
+        border-radius: 150% 20% 150% 0%;
+        opacity: 0.9;
+        animation-duration: 0.75s;
+        animation-name: wiggle-left;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .right-ear {
+        top: 3%;
+        left: 64%;
+        background: var(--kitty-body, lightgray);
+        width: 50%;
+        height: 50%;
+        transform: rotate(5deg);
+        border-radius: 150% 20% 150% 0%;
+        border: var(--border) black solid;
+        animation-duration: 0.75s;
+        animation-name: wiggle-right;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .inside-right-ear {
+        top: 10%;
+        left: 69%;
+        background: var(--kitty-blush, pink);
+        width: 40%;
+        height: 40%;
+        transform: rotate(5deg);
+        border-radius: 150% 20% 150% 0%;
+        opacity: 0.9;
+        animation-duration: 0.75s;
+        animation-name: wiggle-right;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+
+      .head {
+        top: 0%;
+        left: 0%;
+        background: var(--kitty-body, lightgray);
+        width: 100%;
+        height: 100%;
+        border-radius: 60% 60% 45% 45%;
+        border: var(--border) black solid;
+      }
+
+      .left-arm {
+        top: 105%;
+        left: -15%;
+        background: var(--kitty-body, lightgray);
+        width: 50%;
+        height: 23%;
+        transform: rotate(0deg);
+        border-radius: 50% 30% 30% 80%;
+        border: var(--border) black solid;
+        transform-origin: bottom right;
+        animation-duration: 2s;
+        animation-name: wave;
+        animation-iteration-count: infinite;
+        animation-timing-function: easy-in;
+      }
+
+      .right-arm {
+        top: 105%;
+        left: 65%;
+        background: var(--kitty-body, lightgray);
+        width: 50%;
+        height: 23%;
+        transform: rotate(-10deg);
+        border-radius: 30% 50% 80% 30%;
+        border: var(--border) black solid;
+      }
+
+      .left-leg {
+        top: 160%;
+        left: 60%;
+        background: var(--kitty-body, lightgray);
+        width: 30%;
+        height: 20%;
+        transform: rotate(70deg);
+        border-radius: 30% 50% 50% 30%;
+        border: var(--border) black solid;
+      }
+
+      .right-leg {
+        top: 160%;
+        left: 15%;
+        background: var(--kitty-body, lightgray);
+        width: 30%;
+        height: 20%;
+        transform: rotate(105deg);
+        border-radius: 30% 50% 50% 30%;
+        border: var(--border) black solid;
+      }
+
+      .tail {
+        top: 127%;
+        left: 70%;
+        background: var(--kitty-body, lightgray);
+        width: 50%;
+        height: 17%;
+        transform-origin: top left;
+        transform: rotate(20deg);
+        border-radius: 30% 50% 50% 30%;
+        border: var(--border) black solid;
+        animation-duration: 5s;
+        animation-name: tail;
+        animation-iteration-count: infinite;
+        animation-timing-function: easy-out;
+
+      }
+
+      .belly {
+        top: 45%;
+        left: 32%;
+        background: var(--kitty-body, lightgray);
+        width: 36%;
+        height: 44%;
+        border-radius: 30% 30% 50% 50%;
+        border: var(--border) black solid;
+      }
+
+      .cover {
+        top: -7%;
+        left: 0%;
+        background: var(--kitty-body, lightgray);
+        width: 100%;
+        height: 40%;
+        border-radius: 30% 30% 50% 50%;
+      }
+
+      .left-cheek {
+        top: -20%;
+        left: 0%;
+        background: var(--kitty-blush, pink);
+        width: 15%;
+        height: 13%;
+        border-radius: 100%;
+        opacity: 0.5;
+      }
+
+      .right-cheek {
+        top: -20%;
+        left: 85%;
+        background: var(--kitty-blush, pink);
+        width: 15%;
+        height: 13%;
+        border-radius: 100%;
+        opacity: 0.5;
+      }
+
+      .left-eye {
+        top: -30%;
+        left: 15%;
+        background: black;
+        width: 15%;
+        height: 13%;
+        border-radius: 100%;
+      }
+
+      .right-eye {
+        top: -30%;
+        left: 70%;
+        background: black;
+        width: 15%;
+        height: 13%;
+        border-radius: 100%;
+      }
+
+      .mouth1 {
+        top: -25%;
+        left: 40%;
+        background: black;
+        width: 15%;
+        height: 12%;
+        border-radius: 100%;
+      }
+
+      .mouth2 {
+        top: -25%;
+        left: 50%;
+        background: black;
+        width: 15%;
+        height: 12%;
+        border-radius: 100%;
+      }
+
+      .mouth3 {
+        top: -28%;
+        left: 38%;
+        background: var(--kitty-body, lightgray);
+        width: 17%;
+        height: 12%;
+        border-radius: 100% 100% 200% 200%;
+      }
+
+      .mouth4 {
+        top: -28%;
+        left: 50%;
+        background: var(--kitty-body, lightgray);
+        width: 17%;
+        height: 12%;
+        border-radius: 100% 100% 200% 200%;
+      }
+
+      .kitty * {
+        position: absolute;
+      }
+
+      @keyframes wave {
+          10% {
+            transform: rotate(0deg);
+          }
+          30% {
+            transform: rotate(10deg);
+          }
+          50% {
+            transform: rotate(0deg);
+          }
+          70% {
+            transform: rotate(10deg);
+          }
+        }
+      @keyframes wiggle-left {
+          50% {
+            transform: rotate(-102deg);
+          }
+          100% {
+            transform: rotate(-105deg);
+          }
+        }
+
+      @keyframes wiggle-right {
+          50% {
+            transform: rotate(2deg);
+          }
+          100% {
+            transform: rotate(5deg);
+          }
+        }
+
+      @keyframes tail {
+          20% {
+            transform: rotate(20deg);
+          }
+          30% {
+            transform: rotate(17deg);
+          }
+          40% {
+            transform: rotate(17deg);
+          }
+          50% {
+            transform: rotate(20deg);
+          }
+          60% {
+            transform: rotate(17deg);
+          }
+          100% {
+            transform: rotate(20deg);
+          }
+        }
+
+    </style>
+    <title> kitty animation </title>
+  </head>
+  <body>
+    <div class="kitty">
+      <div class="kitty-back">
+        <div class="left-ear"></div>
+        <div class="inside-left-ear"></div>
+        <div class="right-ear"></div>
+        <div class="inside-right-ear"></div>
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="right-arm"></div>
+        <div class="left-leg"></div>
+        <div class="right-leg"></div>
+        <div class="tail"></div>
+      </div>
+      <div class="belly">
+        <div class="cover"></div>
+        <div class="left-cheek"></div>
+        <div class="right-cheek"></div>
+        <div class="left-eye"></div>
+        <div class="right-eye"></div>
+        <div class="mouth1"></div>
+        <div class="mouth2"></div>
+        <div class="mouth3"></div>
+        <div class="mouth4"></div>
+      </div>
+    </div>
+  </body>
+</html>
