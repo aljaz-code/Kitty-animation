@@ -3,17 +3,17 @@
   <head>
     <style>
       :root {
-        --kitty-size: 300px;
+        --kitty-size: 500px;
         --kitty-body: #CBB;
         --kitty-blush: #F98;
         --border: 2px;
         background: lightblue;
       }
 
-      @media (max-width: 500px) {:root {--kitty-size: 200px;--border: 1.5px;}}
-      @media (max-height: 500px) {:root {--kitty-size: 200px;--border: 1.5px;}}
-      @media (max-width: 350px) {:root {--kitty-size: 100px;--border: 1px;}}
-      @media (max-height: 350px) {:root {--kitty-size: 100px;--border: 1px;}}
+      @media (max-width: 500px) {:root {--kitty-size: 300px;--border: 1.5px;}}
+      @media (max-height: 600px) {:root {--kitty-size: 300px;--border: 1.5px;}}
+      @media (max-width: 350px) {:root {--kitty-size: 200px;--border: 1px;}}
+      @media (max-height: 350px) {:root {--kitty-size: 200px;--border: 1px;}}
 
       .kitty {
         position: relative;
@@ -150,16 +150,16 @@
       }
 
       .tail {
-        top: 127%;
+        top: 135%;
         left: 70%;
         background: var(--kitty-body, lightgray);
-        width: 50%;
-        height: 17%;
+        width: 55%;
+        height: 10%;
         transform-origin: top left;
         transform: rotate(20deg);
-        border-radius: 30% 50% 50% 30%;
+        border-radius: 0% 50% 50% 0%;
         border: var(--border) black solid;
-        animation-duration: 5s;
+        animation-duration: 3.79s;
         animation-name: tail;
         animation-iteration-count: infinite;
         animation-timing-function: easy-out;
